@@ -60,7 +60,7 @@ My strategy of choosing scales was based on the assumption that this vehicle det
 
 I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
 
-![alt text][image3]
+![windows][image3]
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
@@ -70,7 +70,7 @@ After windows were detected, heatmap and label were utilized to combine windows.
 
 Here are some resulting example images from my pipeline:
 
-![alt text][image4]
+![pipeline][image4]
 ---
 
 ### Video Implementation
