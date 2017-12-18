@@ -12,7 +12,7 @@ The goals / steps of this project are the following:
 * Estimate a bounding box for vehicles detected.
 
 [//]: # (Image References)
-[image1]: ./output_iamges/carsnoncars.png
+[image1]: ./output_images/carsnoncars.png
 [image2]: ./output_images/hogexplore.png
 [image3]: ./output_images/windows.png
 [image4]: ./output_images/pipeline.jpg
@@ -57,8 +57,6 @@ At first, I tried using udacity lecture's given `sliding_windows` and `search_wi
 I implemented my own function called `find_cars()` which takes HOG features once and subsamples within the result for different search windows. Color histograms and spatial bins, if used, were processed in "sliding windows" fashion. 
 
 My strategy of choosing scales was based on the assumption that this vehicle detection algorithm were to work on highways where the opposing traffic is seggraged by barrier in the center lane. With this assumption, the left side of each frame could mostly be ignored. This was also kind of necessary due to the limitaiton of my computer's computing power, as adding smaller scales all across the frame significantly added to the processing time. So the strategy was to use multiple scales (1.0, 1.5, 2.0, 3.0) spread out in multiple overlapping/non-overlapping regions in the frame. For example, in the lower half of the frame, we know that the cars will appear bigger than the cars way ahead closer to the y=400 pixels region. Hence, more scale 3.0 windows were utilized in such region. As for areas where cars will be smaller, more scale 1.0 or 1.5 windows were concentrated in the appropriate regions. A total of 143 various windows were used. Also, instead of using overlapping factor, i used `cells_per_step` method to dictate how much of overlaps the windows will have in both x and y directions. `cells_per_step = 2` would be equivalent to 50% overlap and `cells_per_step=1.5` would be equivalent to 75% overlap. I have also put in extra effort to ensure that the windows which lie close to the right-edge of the frame do lie as close to the right limit as possible so that newly emerging cars can be captured better. Also, I adjusted the `y_start_stop` parameter so that cars near y=400 can be properly captured by the classifier prediction. The windows I used are summarized in the image below:
-
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
 
 ![windows][image3]
 
