@@ -15,7 +15,7 @@ The goals / steps of this project are the following:
 [image1]: ./output_images/carsnoncars.png
 [image2]: ./output_images/hogexplore.png
 [image3]: ./output_images/windows.png
-[image4]: ./output_images/pipeline.jpg
+[image4]: ./output_images/pipeline.png
 [video1]: ./result.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
